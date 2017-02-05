@@ -1,40 +1,77 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# WebGainsTest
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+Hi! I'm Eduardo Álvarez and I made this little API Rest, working with PHP7, Laravel 5.4 and MySQL.
 
-## About Laravel
+### Requirements
+- All the Laravel [requirements](https://laravel.com/docs/5.4/installation#installing-laravel)
+- The DataBase provided [here](http://www.mysqltutorial.org/mysql-sample-database.aspx)
+- Git
+- Any IDE
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+### Especifications
+- The API routes are at routes/api.php
+- The models are at app folder
+- I use [Fractal](fractal.thephpleague.com), I think it's a convenient way to create the response objects, so I implemented. The transformers are at app/Http/Transformers folder
+- The Controllers are at app/Http/Controllers
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### How to run
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+- Clone this repository
+```
+    $ git clone https://github.com/walis85300/webGainsTest.git
+    $ cd webGainsTest
+```
+- Install all the Laravel requirements
+```
+    $ composer install
+```
 
-## Learning Laravel
+- Once you've installed all dependencies you need to make some changes at .env file, in this case .env.example is configured with my enviroment variables, so if it is convenient for you just change the name to .env.example to .env
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+- If you use [Laravel Valet](https://laravel.com/docs/5.4/valet) (that's my case) you need to link the app folder 
+```
+    $ valet link .
+```
+Now your app will be served at http://webGainsTest.dev
 
-## Contributing
+If you don't use Valet, Artisan provides a command for serve the app on PHP development server, you can use it, just type
+```
+    $ php artisan serve
+```
+And the app will be served at http://localhost:8000
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+### Note 
+You need to write the serve direction at .env file, right in the APP_URL variable, this variable is used in some models to generate the url to specific resources. Also, you need to write the information about your DB, in my case the DB that I just download and execute in my local MySQL is named `classicmodels` 
+    
+### Availables Endpoints 
 
-## Security Vulnerabilities
+- Offices CRUD:
+    - GET /api/offices
+    - GET /api/offices/{id}
+    - POST /api/offices 
+    - PUT /api/offices/{id}
+    - DELETE /api/offices/{id}
+- Product Line CRUD
+    - GET /api/productline
+    - GET /api/productline/{id}
+    - POST /api/productline 
+    - PUT /api/productline/{id}
+    - DELETE /api/productline/{id}
+- Create a sale: 
+     - POST /api/sale
+- Get the product-line performance by office
+    - GET /api/report/product-line 
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+### Unit tests
+I write some unit test, of course you can run it
+```
+    $ ./vendor/bin/phpunit
+```
+I made the test for Office Module (the CRUD operations)
 
-## License
+# Enjoy :) 
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+
+You can contact me: walojose46@gmail.com, my user in GitHub is walis85300 (in twitter too, and facebook too)
+

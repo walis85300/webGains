@@ -28,7 +28,7 @@ class CreateOfficeRequest extends FormRequest
     public function rules()
     {
         return [
-            'officeCode' => 'required|unique:offices,officeCode|string|max:10',
+            'officeCode' => 'required|unique:offices,officeCode|numeric|max:10',
             'city' => 'required|max:50|string',
             'phone' => 'required|max:50|string',
             'addressLine1' => 'required|max:50|string',

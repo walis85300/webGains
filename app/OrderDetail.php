@@ -14,4 +14,5 @@ class OrderDetail extends Pivot
     protected $table = 'orderdetails';
 
     protected $fillable = ['orderNumber','productCode','quantityOrdered','priceEach','orderLineNumber'];
+    protected $visible = ['orderNumber','productCode','quantityOrdered','priceEach','orderLineNumber'];
 }

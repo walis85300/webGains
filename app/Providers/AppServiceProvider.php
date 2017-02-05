@@ -4,6 +4,10 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+use Illuminate\Support\Facades\Validator;
+
+use App\Product;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -13,7 +17,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Validator::extend('existsEnough', function ($attribute, $value, $parameters, $validator) {
+
+            $validatorData = $validator->getData();
+            $validatorAttributes = explode('.', $attribute);
+
+            $productId = $validatorData['products'][$validatorAttributes[1]]['ID'];
+
+            $product = Product::find($productId);
+
+            return ($value <= $product->quantityInStock);
+        });
     }
 
     /**

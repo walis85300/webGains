@@ -86,6 +86,7 @@ return [
     'uploaded'             => 'The :attribute failed to upload.',
     'url'                  => 'The :attribute format is invalid.',
 
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines
@@ -101,6 +102,9 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'products.*.quantity' => [
+            'exists_enough' => 'There is not enough quantity in stock',
+        ]
     ],
 
     /*

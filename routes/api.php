@@ -21,3 +21,7 @@ Route::resource('productline','ProductLineController', ['only' => [
 Route::resource('offices','OfficeController', ['only' => [
 		'index', 'show', 'store', 'update', 'destroy'
 	]]);
+
+Route::post('sale', 'SaleController@store',['names' => [
+	'store' => 'sale.store'
+	]]);

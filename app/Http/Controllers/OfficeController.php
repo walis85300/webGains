@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\CreateOfficeRequest;
+use App\Http\Requests\UpdateOfficeRequest;
 
 use App\Office;
 
@@ -79,9 +80,22 @@ class OfficeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateOfficeRequest $request, $id)
     {
-        //
+        $office = Office::findOrFail($id);
+
+        $office->update([
+            'city' => $request->city,
+            'phone' => $request->phone,
+            'addressLine1' => $request->addressLine1,
+            'addressLine2' => $request->addressLine2,
+            'state' => $request->state,
+            'country' => $request->country,
+            'postalCode' => $request->postalCode,
+            'territory' => $request->territory,
+        ]);
+
+        return response()->json(['ok' => 'updated'], 200);
     }
 
     /**

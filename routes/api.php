@@ -22,6 +22,9 @@ Route::resource('offices','OfficeController', ['only' => [
 		'index', 'show', 'store', 'update', 'destroy'
 	]]);
 
+Route::get('report/product-line', 
+	'PerfomanceProductLineController@productLinePerformance');
+
 Route::post('sale', 'SaleController@store',['names' => [
 	'store' => 'sale.store'
 	]]);

@@ -18,8 +18,8 @@ Hi! I'm Eduardo Álvarez and I made this little API Rest, working with PHP7, Lar
 
 - Clone this repository
 ```
-    $ git clone https://github.com/walis85300/webGainsTest.git
-    $ cd webGainsTest
+    $ git clone https://github.com/walis85300/webGain.git
+    $ cd webGains
 ```
 - Install all the Laravel requirements
 ```
@@ -33,8 +33,7 @@ Hi! I'm Eduardo Álvarez and I made this little API Rest, working with PHP7, Lar
 ```
     $ valet link .
 ```
-Now your app will be served at http://webGainsTest.dev
-
+Now your app will be served at http://webGains.dev
 If you don't use Valet, Artisan provides a command for serve the app on PHP development server, you can use it, just type
 ```
     $ php artisan serve
